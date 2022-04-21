@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -21,21 +21,23 @@ export class CharacterService {
     // }
 
     getPeople(): Observable<any> {
-        let people = this.http.get(this.urlAll);
-        return people;
+        return this.http.get(this.urlAll);
     }
 
     getPeopleById(id: number): Observable<any> {
-        let character = this.http.get(this.url + id);
-        return character;
+        return this.http.get(this.url + id);
     }
 
     getRandomId(ids: number) {
-        let id = Math.floor((Math.random() * ids));
+        let id = Math.floor((Math.random() * (ids - 1)) + 1);
         if (id === 17) {
             id = Math.floor((Math.random() * ids));
         }
         return id;
+    }
+
+    getHomeworld(homeworldUrl: string): Observable<any> {
+        return this.http.get(homeworldUrl);
     }
 
 

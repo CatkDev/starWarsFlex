@@ -5,6 +5,7 @@ mat-toolbar {
 .content {
   padding: 16px;
   text-align: center;
+  margin-top: 2em;
 }
 
 .content > mat-card {
@@ -18,7 +19,6 @@ mat-toolbar {
 
 .detail-button {
   margin-top: 1em;
-
 }
 
 .ta-left {
@@ -27,4 +27,25 @@ mat-toolbar {
 
 .yellow {
   background-color: #FFE81F;
+}
+
+.mat-card-header-text {
+  margin: 0 !important;
+}
+
+.mat-card-title {
+  font-size: 18px !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.detail-box {
+  margin-top: 1.5em;
+  text-align: right !important;
+}
+
+.close-button {
+
 }

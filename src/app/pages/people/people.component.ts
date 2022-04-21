@@ -8,28 +8,20 @@ import { CharacterService } from '../../services/character.service';
 })
 export class PeopleComponent implements OnInit {
 
-    showDetails = false;
+    showDetail = false;
     peopleAll:any = [];
     allIds: number = 0;
     peopleArray: any[] = [];
+    description: string = '';
+    homeworldUrl: string = '';
+    homeworldName: string = '';
+    terrain: string = '';
 
 
     constructor(private cs: CharacterService) {
     }
 
     async ngOnInit() {
-
-        // await this.cs.getPeople().subscribe( (data) => {
-        //
-        //     this.peopleAll = data.results;
-        //     this.allIds = this.peopleAll.length;
-        //     for (let i = 0; i < 3; i++) {
-        //         this.cs.getPeopleById(this.cs.getRandomId(this.allIds)).subscribe((data) => {
-        //             this.peopleArray.push(data.result);
-        //             console.log(this.peopleArray);
-        //         })
-        //     }
-        // });
 
         await this.cs.getPeople().subscribe({
             next: (peopleData) => {
@@ -46,6 +38,25 @@ export class PeopleComponent implements OnInit {
                 console.log('Error', err);
             }
         })
+    }
+
+    showDetails(id: any) {
+        this.showDetail = true;
+        console.log('Button Details', id);
+        this.description = id.description;
+        this.homeworldUrl = id.properties.homeworld;
+        this.cs.getHomeworld(this.homeworldUrl).subscribe({
+            next: (homeworldData) => {
+                console.log(homeworldData);
+                this.homeworldName = homeworldData.result.properties.name;
+                this.terrain = homeworldData.result.properties.terrain;
+            }
+        });
+
+    }
+
+    closeDetails() {
+        this.showDetail = false;
     }
 
 }
