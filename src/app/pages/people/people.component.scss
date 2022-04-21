@@ -1,0 +1,30 @@
+mat-toolbar {
+  justify-content: space-between;
+}
+
+.content {
+  padding: 16px;
+  text-align: center;
+}
+
+.content > mat-card {
+  margin-bottom: 16px;
+}
+
+.column-label {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.detail-button {
+  margin-top: 1em;
+
+}
+
+.ta-left {
+  text-align: left !important;
+}
+
+.yellow {
+  background-color: #FFE81F;
+}
