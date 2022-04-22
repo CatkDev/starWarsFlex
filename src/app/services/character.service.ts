@@ -9,6 +9,7 @@ export class CharacterService {
 
     urlAll: string = 'https://www.swapi.tech/api/people/?page=1&limit=0';
     url: string = 'https://www.swapi.tech/api/people/';
+    charArray: any[] = [];
 
     constructor(private http: HttpClient) {
     }

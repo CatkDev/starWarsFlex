@@ -16,21 +16,24 @@ export class PeopleComponent implements OnInit {
     homeworldUrl: string = '';
     homeworldName: string = '';
     terrain: string = '';
+    isLoading: boolean = true;
 
 
     constructor(private cs: CharacterService) {
     }
 
-    async ngOnInit() {
+    ngOnInit() {
 
-        await this.cs.getPeople().subscribe({
+        this.cs.getPeople().subscribe({
             next: (peopleData) => {
                 this.peopleAll = peopleData.results;
                 this.allIds = this.peopleAll.length;
                 for (let i = 0; i < 3; i++) {
                     this.cs.getPeopleById(this.cs.getRandomId(this.allIds)).subscribe((data) => {
                         this.peopleArray.push(data.result);
-                        console.log(this.peopleArray);
+                        if (this.peopleArray.length === 3) {
+                            this.isLoading = false;
+                        }
                     })
                 }
             },
