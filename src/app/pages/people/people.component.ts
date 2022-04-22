@@ -11,7 +11,9 @@ export class PeopleComponent implements OnInit {
     showDetail = false;
     peopleAll:any = [];
     allIds: number = 0;
+
     peopleArray: any[] = [];
+
     description: string = '';
     homeworldUrl: string = '';
     homeworldName: string = '';
@@ -22,9 +24,9 @@ export class PeopleComponent implements OnInit {
     constructor(private cs: CharacterService) {
     }
 
-    ngOnInit() {
+    async ngOnInit() {
 
-        this.cs.getPeople().subscribe({
+        await this.cs.getPeople().subscribe({
             next: (peopleData) => {
                 this.peopleAll = peopleData.results;
                 this.allIds = this.peopleAll.length;

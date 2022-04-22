@@ -4,7 +4,7 @@
 
 <div class="content">
     <div>
-        <mat-spinner *ngIf="isLoading" style="margin: auto;"></mat-spinner>
+        <mat-spinner *ngIf="isLoading" class="mat-spinner-color" style="margin: auto; margin-top: 300px;"></mat-spinner>
     </div>
     <div *ngIf="!isLoading" fxLayout="row wrap" fxLayoutGap="16px grid" fxLayoutAlign="center center">
         <div fxFlex="20" fxFlex.xs="100" fxFlex.sm="33" *ngFor="let p of peopleArray">

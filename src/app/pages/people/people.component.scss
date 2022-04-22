@@ -49,3 +49,8 @@ mat-toolbar {
 .close-button {
 
 }
+
+.mat-spinner-color::ng-deep circle{
+  stroke: #FFE81F !important;
+}
+
