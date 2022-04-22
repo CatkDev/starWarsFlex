@@ -17,11 +17,9 @@
             </mat-card>
             <button mat-stroked-button class="detail-button yellow" (click)="showDetails(p)">Details</button>
         </div>
-        <div *ngIf="showDetail" fxFlex="60" fxFlex.xs="100" fxFlex.sm="100" class="detail-box">
+        <div *ngIf="showDetail" fxFlex="50" fxFlex.xs="100" fxFlex.sm="100" class="detail-box">
             <mat-card *ngIf="homeworldName">
-
                 <mat-card-title class="ta-left">Details</mat-card-title>
-
                 <mat-card-content class="ta-left">
                     Heimatplanet: {{homeworldName}}<br>
                     Terrain: {{terrain}}
