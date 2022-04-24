@@ -4,7 +4,7 @@
 
 <div class="content">
     <div>
-        <mat-spinner *ngIf="isLoading" class="mat-spinner-color" style="margin: auto; margin-top: 300px;"></mat-spinner>
+        <ngx-spinner *ngIf="isLoading" [fullScreen]="false"  bdColor="rgba(0,0,0,0.0" type="ball-scale" size="large"></ngx-spinner>
     </div>
     <div *ngIf="!isLoading" fxLayout="row wrap" fxLayoutGap="16px grid" fxLayoutAlign="center center">
         <div fxFlex="20" fxFlex.xs="100" fxFlex.sm="33" *ngFor="let p of peopleArray">
@@ -21,17 +21,22 @@
             <button mat-stroked-button class="detail-button yellow" (click)="showDetails(p)">Details</button>
         </div>
     </div>
-    <div fxLayout="row wrap" fxLayoutAlign="center center" class="detail-box">
+    <div fxLayout="row wrap" fxLayoutAlign="center center" class="">
         <mat-spinner *ngIf="showDetail && !homeworldName" class="mat-spinner-color" style="margin: auto; margin-top: 20px"></mat-spinner>
+<!--        <ngx-spinner *ngIf="showDetail && !homeworldName" [fullScreen]="false" bdColor="rgba(0,0,0,0.0" type="ball-scale" size="large"></ngx-spinner>-->
     </div>
     <div *ngIf="!isLoading" fxLayout="row wrap" fxLayoutAlign="center center">
         <div *ngIf="showDetail" fxFlex="50" fxFlex.xs="100" fxFlex.sm="100" class="detail-box">
             <mat-card *ngIf="homeworldName">
                 <mat-card-title class="ta-left">Details</mat-card-title>
-                <mat-card-content class="ta-left">
-                    Heimatplanet: {{homeworldName}}<br>
-                    Terrain: {{terrain}}
-                </mat-card-content>
+<!--                <mat-spinner *ngIf="isLoadingDetail" class="mat-spinner-color" style="margin: auto"></mat-spinner>-->
+                <ngx-spinner *ngIf="isLoadingDetail" [fullScreen]="false" bdColor="rgba(0,0,0,0.0" type="ball-pulse" size="medium" color="black"></ngx-spinner>
+                <div *ngIf="!isLoadingDetail">
+                    <mat-card-content class="ta-left">
+                        Heimatplanet: {{homeworldName}}<br>
+                        Terrain: {{terrain}}
+                    </mat-card-content>
+                </div>
                 <button class="yellow" mat-raised-button (click)="closeDetails()">Close</button>
             </mat-card>
         </div>
