@@ -8,7 +8,6 @@ import { CharacterService } from '../../services/character.service';
 })
 export class PeopleComponent implements OnInit {
 
-    showDetail = false;
     peopleAll:any = [];
     allIds: number = 0;
 
@@ -18,15 +17,18 @@ export class PeopleComponent implements OnInit {
     homeworldUrl: string = '';
     homeworldName: string = '';
     terrain: string = '';
+
     isLoading: boolean = true;
+    isLoadingDetail: boolean = true;
+    showDetail: boolean = false;
 
 
     constructor(private cs: CharacterService) {
     }
 
-    async ngOnInit() {
+    ngOnInit() {
 
-        await this.cs.getPeople().subscribe({
+        this.cs.getPeople().subscribe({
             next: (peopleData) => {
                 this.peopleAll = peopleData.results;
                 this.allIds = this.peopleAll.length;

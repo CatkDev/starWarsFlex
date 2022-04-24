@@ -20,6 +20,11 @@
             </mat-card>
             <button mat-stroked-button class="detail-button yellow" (click)="showDetails(p)">Details</button>
         </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="center center" class="detail-box">
+        <mat-spinner *ngIf="showDetail && !homeworldName" class="mat-spinner-color" style="margin: auto; margin-top: 20px"></mat-spinner>
+    </div>
+    <div *ngIf="!isLoading" fxLayout="row wrap" fxLayoutAlign="center center">
         <div *ngIf="showDetail" fxFlex="50" fxFlex.xs="100" fxFlex.sm="100" class="detail-box">
             <mat-card *ngIf="homeworldName">
                 <mat-card-title class="ta-left">Details</mat-card-title>
