@@ -23,7 +23,6 @@ export class PeopleComponent implements OnInit {
     isLoadingDetail: boolean = true;
     showDetail: boolean = false;
 
-
     constructor(private cs: CharacterService,
                 private spinner: NgxSpinnerService) {
     }
@@ -31,7 +30,6 @@ export class PeopleComponent implements OnInit {
     ngOnInit() {
 
         this.spinner.show();
-
         this.cs.getPeople().subscribe({
             next: (peopleData) => {
                 this.peopleAll = peopleData.results;
